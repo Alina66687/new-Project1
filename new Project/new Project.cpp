@@ -1,17 +1,57 @@
 ﻿#include <iostream>
 #include <vector>
+#include <Windows.h>
 using namespace std;
 
-int main()
+struct Contact
 {
-	vector<int> arr2;
-	for (int i = 100; i > 0; i--)
+	string name;
+	string number;
+};
+Contact create_contact();
+void output_book(vector<Contact>&);
+
+void main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int input;
+	vector<Contact> book;
+	do
 	{
-		arr2.push_back(i);
-	}
-	arr2.insert(arr2.begin() + 4, 77);
-	for (auto i : arr2)
+		cout << "1 - Создать контакт " << endl
+			<< "2 - Просмотреть книгу  " << endl
+			<< "0 - Выход " << endl;
+		cin >> input;
+		switch (input)
+		{
+		case 1:
+			book.push_back(create_contact());
+			break;
+		case 2:
+			output_book(book);
+			break;
+		default:
+			break;
+		}
+	} while (input != 0);
+}
+
+
+Contact create_contact()
+{
+	Contact contact;
+	cout << "Введите имя: " << endl;
+	cin >> contact.name;
+	cout << "Введите номер: " << endl;
+	cin >> contact.number;
+	return contact;
+}
+
+void output_book(vector<Contact>& book)
+{
+	for (int i = 0; i < book.size(); i++)
 	{
-		cout << i << " ";
+		cout << "Имя: " << book[i].name << " Номер: " << book[i].number << endl;
 	}
 }
