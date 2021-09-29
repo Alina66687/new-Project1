@@ -16,7 +16,7 @@ void edit_contact_in_book(vector<Contact>&, int);
 void output_contact_in_book(vector<Contact>&, int);
 void main()
 {
-	
+
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int input;
@@ -29,7 +29,7 @@ void main()
 			<< "3 - Редактировать контакт" << endl
 			<< "4 - Очистить книгу" << endl
 			<< "0 - Выход " << endl;
-		
+
 		cin >> input;
 		switch (input)
 		{
